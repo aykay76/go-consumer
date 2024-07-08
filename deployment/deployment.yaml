@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: go-consumer
+  namespace: go-consumer
+spec:
+  serviceAccountName: go-consumer
+  containers:
+  - name: app
+    image: ghcr.io/aykay76/go-consumer:v0.0.1
+    imagePullPolicy: Always
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/go-consumer
+  - name: test
+    image: registry.k8s.io/busybox
+    command: [ "/bin/sh", "-c", "cat /etc/config/app.config" ]
+    volumeMounts:
+    - name: config-volume
+      mountPath: /etc/config
+  volumes:
+  - name: config-volume
+    configMap:
+      name: app-config

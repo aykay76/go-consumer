@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-config
+  namespace: go-consumer
+data:
+  app.config: |
+    client.id=00000000-0000-0000-0000-000000000000
+    tenant.id=00000000-0000-0000-0000-000000000000
+  middleware.config: |
+    kafka.servers=localhost:9001,localhost:9002,localhost:9003
+    database.host=database.example.com
+    database.username=dbuser    
+  observability.config: |
+    loki.endpoint=whatever
+    prometheus.endpoint=whatever
+    alloy.address=whatever
