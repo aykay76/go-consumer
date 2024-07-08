@@ -8,4 +8,5 @@ func main() {
 	var t thing.Thing
 	t.Name = "Bob"
 	t.Hello()
+	t.Goodbye()
 }
