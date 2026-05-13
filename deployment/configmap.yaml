@@ -9,6 +9,12 @@ data:
     tenant.id=00000000-0000-0000-0000-000000000000
   middleware.config: |
     kafka.servers=localhost:9001,localhost:9002,localhost:9003
+    kafka.group=consumer_group
+    kafka.auto.offset.reset=earliest
+    kafka.security_protocol=SASL_SSL
+    kafka.sasl.mechanism=PLAIN
+    kafka.sasl.username=username
+    kafka.sasl.password=password
     database.host=database.example.com
     database.username=dbuser    
   observability.config: |
